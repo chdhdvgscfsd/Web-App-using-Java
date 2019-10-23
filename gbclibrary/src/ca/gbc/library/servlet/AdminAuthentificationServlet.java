@@ -41,17 +41,22 @@ public class AdminAuthentificationServlet extends HttpServlet {
 		
 		request.setAttribute("adminUser", user);
 		
+		
+		//creating a sticky form, user gets back what they submitted(prev attempt) and try to resubmit again
+		request.setAttribute("email", request.getParameter("adminEmail"));
+		
 		if(username != null && username.length()>0) {
 			if(username.equalsIgnoreCase("admin@georgebrown.ca") && password.equalsIgnoreCase("admin123") ){
-				request.getRequestDispatcher("admin.html").forward(request, response);
+				request.getRequestDispatcher("admin.jsp").forward(request, response);
+				//from web.xml file
 				log("User "+ user.getEmail() + " from "+ getServletContext().getInitParameter("School") 
 						 +" has successfully logged in ");
 			}
 			else {
 				response.setContentType("text/html");
-				PrintWriter pw = response.getWriter();
-				pw.print("<h2>Admin Invalid Credentials Provided!</h2>");
-				request.getRequestDispatcher("index.jsp").include(request, response);
+				//setting a failed login msg and inform the end-user
+				request.setAttribute("message", "failed Login attempt");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		
 		}

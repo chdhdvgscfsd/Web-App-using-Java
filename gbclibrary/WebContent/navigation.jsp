@@ -4,13 +4,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>A Web Page</title>
 </head>
 <body>
-
-<jsp:include page="<%="navigation.jsp"%>"/>
-
-<jsp:include page="<%="footer.jsp" %>"/>
+	<nav id="header">
+		<a href="">GBC Library</a> | 
+		<a href="">Home</a> | 
+		<a href="">Admin</a> | 
+		<a href="">Librarian</a>
+	</nav>
+	
+	<h1>GBC Library</h1> 
 
 </body>
 </html>

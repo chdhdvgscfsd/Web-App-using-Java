@@ -37,19 +37,24 @@ public class LibrarianAuthentificationServlet extends HttpServlet {
 		
 		//set the attribute
 		request.setAttribute("librarian", user);
+		
+		
+		
+		//creating a sticky form, user gets back what they submitted(prev attempt) and try to resubmit again
+		request.setAttribute("email1", request.getParameter("librarianEmail"));
 	
 		
 		if(username != null && username.length()>0) {
 			if(username.equalsIgnoreCase("user@georgebrown.ca") && password.equalsIgnoreCase("user123") ){
-				request.getRequestDispatcher("librarian.html").forward(request, response);
+				request.getRequestDispatcher("librarian.jsp").forward(request, response);
 				log("User "+ user.getEmail() + " from "+ getServletContext().getInitParameter("Locals") 
 						 +" has successfully logged in ");
 			}
 			else {
 				response.setContentType("text/html");
-				PrintWriter pw = response.getWriter();
-				pw.print("<h3>User Invalid Credentials Provided!</h3>");
-				request.getRequestDispatcher("index.jsp").include(request, response);
+				//setting a failed login msg and inform the end-user
+				request.setAttribute("message1", "failed Login attempt");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		}
 	}

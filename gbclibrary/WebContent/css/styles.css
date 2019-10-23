@@ -1,5 +1,9 @@
 @charset "ISO-8859-1";
 
+body{
+	background-color:#FFFFFF;
+}
+
 #form1{
 			border-radius: 10px;
 		    background-color: #f2f2f2;
@@ -43,4 +47,11 @@
    	   bottom: 10px;
    	   width: 95%;
    	   float: right
+   }
+   
+   .msg{
+   		text-danger;
+   		text-center;
+   		color: red;
+   
    }
