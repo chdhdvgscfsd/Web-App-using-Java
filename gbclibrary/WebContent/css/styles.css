@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+#form1{
+			border-radius: 10px;
+		    background-color: #f2f2f2;
+			padding: 20px;
+			width: 30%;
+			position: absolute;
+			top: 20%;
+			margin: auto;
+		}
+		
+#form2{
+			border-radius: 10px;
+		    background-color: #f2f2f2;
+			padding: 20px;
+			width: 30%;
+			position: absolute;
+			height: 200px;
+			top: 20%;
+			margin: auto;
+			left: 50%;
+			
+		}
+.btn btn-primary:hover {
+  		background-color: #45a049;
+		}
+		
+.footer{ 
+       position: fixed;     
+       text-align: left;    
+       bottom: 10px; 
+       width: 100%;
+   }  
+   .footerLine{
+   	   position: fixed;       
+       bottom: 30px; 
+       width: 100%;
+   }
+   .footerTime{
+   	   position: fixed;
+   	   text-align: center;
+   	   bottom: 10px;
+   	   width: 95%;
+   	   float: right
+   }

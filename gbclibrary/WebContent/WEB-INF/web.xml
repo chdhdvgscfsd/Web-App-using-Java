@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>gbclibrary</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+
+<!-- Servlet definitions -->
+	<servlet>
+		<servlet-name>LibrarianAuthentificationServlet</servlet-name>
+		<servlet-class>ca.gbc.library.servlet.LibrarianAuthentificationServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LibrarianAuthentificationServlet</servlet-name>
+		<url-pattern>/LibrarianAuthentification</url-pattern>
+		<url-pattern>/LibAuth</url-pattern>
+	</servlet-mapping>
+	
+	<context-param>
+		<param-name>School</param-name>
+		<param-value>George Brown College</param-value>
+	</context-param>
+	<context-param>
+		<param-name>Locals</param-name>
+		<param-value>Toronto, Canada</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>AdminAuthentificationServlet</servlet-name>
+		<servlet-class>ca.gbc.library.servlet.AdminAuthentificationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminAuthentificationServlet</servlet-name>
+		<url-pattern>/AdminIdentity</url-pattern>
+	</servlet-mapping>
+	
+	
+
+</web-app>
