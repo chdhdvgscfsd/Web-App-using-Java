@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ca.gbc.library.beans.User;
 
@@ -39,15 +40,20 @@ public class AdminAuthentificationServlet extends HttpServlet {
 		user.setPassword(password);
 		user.setRole(role);
 		
-		request.setAttribute("adminUser", user);
 		
+		//request.setAttribute("adminUser", user);  ..not longer needed
+		//switching from req scope to session scope
+		HttpSession session = request.getSession();
+		session.setAttribute("adminUser", user);
+		//set session to last for duration d browser is open
+		session.setMaxInactiveInterval(-1);
 		
 		//creating a sticky form, user gets back what they submitted(prev attempt) and try to resubmit again
 		request.setAttribute("email", request.getParameter("adminEmail"));
 		
 		if(username != null && username.length()>0) {
 			if(username.equalsIgnoreCase("admin@georgebrown.ca") && password.equalsIgnoreCase("admin123") ){
-				request.getRequestDispatcher("admin.jsp").forward(request, response);
+				request.getRequestDispatcher("/CookieServlet").forward(request, response);
 				//from web.xml file
 				log("User "+ user.getEmail() + " from "+ getServletContext().getInitParameter("School") 
 						 +" has successfully logged in ");

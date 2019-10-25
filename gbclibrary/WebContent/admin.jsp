@@ -5,15 +5,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<nav id="nav">
+	<nav id="nav">
 		<a href="">GBC Library</a> | 
 		<a href="">Home</a> | 
 		<a href="">Add Librarian</a> | 
 		<a href="">View Librarian</a> |
-		<a href="Logout">Logout</a>
+		<button onclick=" location.href ='Logout'"  type="button">${adminUser.email} Logout</button>
 	</nav>
 	
 	<h1>Admin Section</h1>
@@ -22,7 +23,7 @@
 	<a href="" style="text-decoration:none">View Librarian</a><br>
 	<a href="" style="text-decoration:none">Edit Librarian</a><br>
 	<a href="" style="text-decoration:none">Delete Librarian</a><br>
-	<a href="" style="text-decoration:none">Logout</a>
+	
 	
 	<%@ include file="footer.jsp" %>
 </body>

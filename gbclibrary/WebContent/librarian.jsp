@@ -16,7 +16,7 @@
 		<a href="">Issue Book</a> | 
 		<a href="">View Issued Book</a> |
 		<a href="">Book Return</a> | 
-		<a href="Logout">Logout</a>
+		<button onclick=" location.href ='Logout'"  type="button">${librarian.email} Logout</button>
 	</nav>
 	
 	<h1>Librarian Section</h1>
@@ -27,7 +27,7 @@
 	<a href="" style="text-decoration:none">Issue Book</a><br>
 	<a href="" style="text-decoration:none">View Issued Book</a><br>
 	<a href="" style="text-decoration:none">Book Return</a><br>
-	<a href="" style="text-decoration:none">Logout</a>
+	
 
 	<%@ include file="footer.jsp" %>
 </body>

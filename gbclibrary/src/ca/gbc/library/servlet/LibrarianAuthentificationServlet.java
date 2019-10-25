@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ca.gbc.library.beans.User;
 
@@ -36,7 +37,13 @@ public class LibrarianAuthentificationServlet extends HttpServlet {
 		user.setRole(role);
 		
 		//set the attribute
-		request.setAttribute("librarian", user);
+		//request.setAttribute("librarian", user);not longer needed
+
+		//switching from req scope to session scope
+		HttpSession session = request.getSession();
+		session.setAttribute("librarian", user);
+		//set session to last for duration d browser is open
+		session.setMaxInactiveInterval(-1);
 		
 		
 		
@@ -46,7 +53,7 @@ public class LibrarianAuthentificationServlet extends HttpServlet {
 		
 		if(username != null && username.length()>0) {
 			if(username.equalsIgnoreCase("user@georgebrown.ca") && password.equalsIgnoreCase("user123") ){
-				request.getRequestDispatcher("librarian.jsp").forward(request, response);
+				request.getRequestDispatcher("CookieServlet").forward(request, response);
 				log("User "+ user.getEmail() + " from "+ getServletContext().getInitParameter("Locals") 
 						 +" has successfully logged in ");
 			}
