@@ -53,7 +53,7 @@ public class LibrarianAuthentificationServlet extends HttpServlet {
 		
 		if(username != null && username.length()>0) {
 			if(username.equalsIgnoreCase("user@georgebrown.ca") && password.equalsIgnoreCase("user123") ){
-				request.getRequestDispatcher("CookieServlet").forward(request, response);
+				request.getRequestDispatcher("/CookieServlet").forward(request, response);
 				log("User "+ user.getEmail() + " from "+ getServletContext().getInitParameter("Locals") 
 						 +" has successfully logged in ");
 			}

@@ -1,12 +1,14 @@
 package ca.gbc.library.cookies;
 
-public class PersistentCookie {
+import javax.servlet.http.Cookie;
+
+public class PersistentCookie extends Cookie {
 	
-	private static final SECONDS_PER_HALF_HOUR =60.00*30.00;
+	private static final float SECONDS_PER_HALF_HOUR = 60*30;
 	
-	public PersistentCookie(String name, String value) {
+	public PersistentCookie(String name,String value) {
 		super(name,value);
-		setMaxAge(SECONDS_PER_HALF_HOUR)
+		setMaxAge((int) SECONDS_PER_HALF_HOUR);
 	}
 
 }

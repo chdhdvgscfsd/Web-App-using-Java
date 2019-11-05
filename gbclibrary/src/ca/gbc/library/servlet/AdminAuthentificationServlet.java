@@ -44,11 +44,11 @@ public class AdminAuthentificationServlet extends HttpServlet {
 		//request.setAttribute("adminUser", user);  ..not longer needed
 		//switching from req scope to session scope
 		HttpSession session = request.getSession();
-		session.setAttribute("adminUser", user);
+		session.setAttribute("adminUser", user);  //session set here is used in the CookieServlet
 		//set session to last for duration d browser is open
 		session.setMaxInactiveInterval(-1);
 		
-		//creating a sticky form, user gets back what they submitted(prev attempt) and try to resubmit again
+		//creating a sticky form just for the email, user gets back what they submitted(prev attempt) and try to resubmit again
 		request.setAttribute("email", request.getParameter("adminEmail"));
 		
 		if(username != null && username.length()>0) {
